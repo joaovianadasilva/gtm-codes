@@ -1,0 +1,18 @@
+function() {
+  // Substitua pelas suas variáveis do GTM
+  var x = {{Variavel X}};
+  var y = {{Variavel Y}};
+
+  // Defina os valores aceitáveis para cada variável
+  var valoresAceitaveisX = ["valor1", "valor2", "valor3"];
+  var valoresAceitaveisY = ["valorA", "valorB", "valorC"];
+
+  // Converte para minúsculo para evitar erro por capitalização
+  if (typeof x === "string") x = x.toLowerCase();
+  if (typeof y === "string") y = y.toLowerCase();
+
+  var xValido = valoresAceitaveisX.indexOf(x) !== -1;
+  var yValido = valoresAceitaveisY.indexOf(y) !== -1;
+
+  return (xValido && yValido) ? "qualificado" : "não_qualificado";
+}
