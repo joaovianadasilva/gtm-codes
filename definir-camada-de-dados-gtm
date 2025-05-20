@@ -1,0 +1,16 @@
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.querySelector('form'); // ajuste esse seletor, se necessário
+
+      if (!form) return;
+
+      form.addEventListener('submit', function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'sent_form'
+        });
+      });
+    });
+  })();
+</script>
