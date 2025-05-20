@@ -1,0 +1,20 @@
+<script>
+  (function() {
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.querySelector('form'); // ajuste se necessário para um seletor mais específico
+
+      if (!form) return;
+
+      form.addEventListener('submit', function () {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'sent_form',
+          nome: 'nome',
+          telefone: '{{jsp-user_data - telefone}}',
+          faturamento: '{{jsp-user_data - Faturamento}}',
+          setor: '{{jsp-user_data - Setor}}'
+        });
+      });
+    });
+  })();
+</script>
