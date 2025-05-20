@@ -1,0 +1,7 @@
+function() {
+  var field = document.querySelector('[id="example-id"]'); 
+  if (!field) return undefined;
+
+  var value = field.value.trim().toLowerCase().replace(/\s+/g, ',');
+  return value;
+}
