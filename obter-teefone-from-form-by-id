@@ -1,20 +1,19 @@
 function formatPhone() {
-  // Substitua pela variável do seu formulário
   var phoneInput = document.querySelector('[id="homephone"]');
+  if (!phoneInput) return undefined;
 
-  if (phoneInput) {
-    var phoneValue = phoneInput.value;
+  var phoneValue = phoneInput.value;
+  var numeroLimpo = phoneValue.replace(/\D/g, '');
 
-    // Remove caracteres não numéricos e espaços
-    var numeroLimpo = phoneValue.replace(/\D/g, '');
+  // Validação: exige pelo menos 10 dígitos (sem DDI)
+  if (numeroLimpo.length < 10) return undefined;
 
-    // Adiciona o código do país 55 (Brasil) se necessário
-    if (!numeroLimpo.startsWith('55')) {
-      numeroLimpo = '55' + numeroLimpo;
-    }
-
-    return numeroLimpo;
+  if (!numeroLimpo.startsWith('55')) {
+    numeroLimpo = '55' + numeroLimpo;
   }
 
-  return undefined;
+  // Validação final: após adicionar 55, deve ter ao menos 12 dígitos
+  if (numeroLimpo.length < 12) return undefined;
+
+  return numeroLimpo;
 }
