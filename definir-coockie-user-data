@@ -1,0 +1,19 @@
+<script>
+ //cookie-telefone
+(function(){
+  var cookieName = "user_data_phone";
+  var cookieValue = "{{jsp-user_data - telefone}}"; // Substitua pela variável correta
+
+  // Só continua se cookieValue for válido
+  if (!cookieValue || cookieValue === "undefined") return;
+
+  var expirationTime = 31536000; // 1 ano em segundos
+  var date = new Date();
+  date.setTime(date.getTime() + expirationTime * 1000);
+  var expires = date.toUTCString();
+
+  document.cookie = cookieName + "=" + cookieValue +
+                    "; SameSite=None; Secure; expires=" + expires +
+                    "; path=/; domain=.spaceresult.com.br";
+})();
+</script>
