@@ -1,1 +1,4 @@
-
+function() {
+  var selected = document.querySelector('input[name="qual-o-seu-setor"]:checked');
+  return selected ? selected.value : undefined;
+}
