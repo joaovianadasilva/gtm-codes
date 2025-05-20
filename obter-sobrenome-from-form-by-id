@@ -1,0 +1,15 @@
+function getLastName() {
+  var nameField = document.querySelector('[id="name"]');
+  if (!nameField) return undefined;
+
+  var name = nameField.value.trim().toLowerCase();
+  var names = name.split(' ');
+
+  // Retorna o último nome, se houver mais de um
+  if (names.length > 1) {
+    return names[names.length - 1];
+  }
+
+  // Se só houver um nome, retorna undefined
+  return undefined;
+}
